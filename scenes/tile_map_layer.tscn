@@ -100,6 +100,9 @@ texture = ExtResource("1_wipo8")
 2:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_tefeu")
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_o5qli"]
 occlusion_layer_0/light_mask = 1

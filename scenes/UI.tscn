@@ -8,7 +8,14 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_dj8aq")
 
-[node name="ProgressBar" type="TextureProgressBar" parent="."]
+[node name="overscreen" type="ColorRect" parent="."]
+offset_left = -37.0
+offset_top = -16.0
+offset_right = 1179.0
+offset_bottom = 671.0
+color = Color(0, 0, 0, 1)
+
+[node name="hp" type="TextureProgressBar" parent="."]
 offset_left = 269.0
 offset_top = 608.0
 offset_right = 909.0
