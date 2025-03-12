@@ -107,6 +107,8 @@ script = ExtResource("1_oul6g")
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.407843, 0.407843, 0.407843, 1)
+z_index = 2
+y_sort_enabled = true
 position = Vector2(4, -50)
 scale = Vector2(4, 4)
 texture = ExtResource("2_rkbax")
