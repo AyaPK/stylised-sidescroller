@@ -31,6 +31,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if light_detector.hit_by_light:
-		modulate = Color(0.25, 0, 0)
+		Ui.remove_health()
 	else:
-		modulate = Color(1, 1, 1)
+		Ui.add_health()
