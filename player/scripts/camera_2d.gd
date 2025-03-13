@@ -25,7 +25,8 @@ func _process(delta : float) -> void:
 
 ## The function to use for adding trauma (screen shake)
 func add_trauma(amount : float) -> void:
-	trauma = min(trauma + amount, 0.15)
+	print(((0.05) * -(Ui.hp.value - Ui.hp.max_value))/100)
+	trauma = min(trauma + amount, ((0.1) * -(Ui.hp.value - Ui.hp.max_value))/180)
 
 func shake() -> void:
 	var amount = pow(trauma, trauma_power)

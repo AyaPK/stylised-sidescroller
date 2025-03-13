@@ -8,7 +8,7 @@ class_name LightDetector extends Node2D
 
 var hit_by_light: bool = true
 
-func _process(delta):
+func _process(_delta):
 	queue_redraw()
 
 func _draw():
@@ -17,9 +17,6 @@ func _draw():
 		var angle_radians = deg_to_rad(light_angle)
 
 		var direction = Vector2(cos(angle_radians), -sin(angle_radians))
-
-		var perpendicular = direction.orthogonal()
-
 		var start_positions = [
 			start_position,
 			start_position - Vector2(side_offset, 0),
