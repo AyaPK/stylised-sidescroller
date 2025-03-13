@@ -5,7 +5,7 @@ var start_y: float
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_active:
 		if !start_y:
 			start_y = global_position.y

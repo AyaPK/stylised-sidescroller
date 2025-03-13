@@ -25,6 +25,7 @@ func remove_health() -> void:
 	node_end_2.emitting = true
 	node_end_3.emitting = true
 	hp_anim.play("shaking")
+	AudioManager.decrease_low_pass()
 
 func add_health() -> void:
 	hp.value += 1
@@ -32,3 +33,4 @@ func add_health() -> void:
 	node_end_2.emitting = false
 	node_end_3.emitting = false
 	hp_anim.play("still")
+	AudioManager.increase_low_pass()

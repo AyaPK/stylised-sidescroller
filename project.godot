@@ -17,7 +17,8 @@ run/max_fps=60
 
 [autoload]
 
-Ui="*res://scenes/UI.tscn"
+AudioManager="*res://globals/audio_manager.gd"
+Ui="*res://globals/UI.tscn"
 
 [input]
 
