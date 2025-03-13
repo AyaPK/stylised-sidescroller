@@ -27,8 +27,8 @@ func _ready() -> void:
 	sfx_player.max_polyphony = 10
 	audio_bus = AudioServer.get_bus_index("SFX")
 	master_bus = AudioServer.get_bus_index("Master")
-	low_pass_filter.cutoff_hz = 12000
 	AudioServer.add_bus_effect(master_bus, low_pass_filter)
+	AudioServer.get_bus_effect(master_bus, 0).cutoff_hz = 12000
 	play_music(LOOP_1_HELLO_WORLD)
 
 func _process(_delta: float) -> void:
@@ -55,7 +55,9 @@ func play_sfx(_audio: AudioStream) -> void:
 func decrease_low_pass() -> void:
 	if AudioServer.get_bus_effect(master_bus, 0).cutoff_hz >= 200:
 		AudioServer.get_bus_effect(master_bus, 0).cutoff_hz -= 30
+		AudioServer.set_bus_volume_db(master_bus, AudioServer.get_bus_volume_db(master_bus)-0.03)
 
 func increase_low_pass() -> void:
 	if AudioServer.get_bus_effect(master_bus, 0).cutoff_hz <= 12000:
 		AudioServer.get_bus_effect(master_bus, 0).cutoff_hz += 30
+		AudioServer.set_bus_volume_db(master_bus, AudioServer.get_bus_volume_db(master_bus)+0.03)
