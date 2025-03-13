@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwufacsxl66ck"]
+
+[ext_resource type="Script" uid="uid://xwi1yipawit2" path="res://scripts/button_door.gd" id="1_vox1x"]
+[ext_resource type="Texture2D" uid="uid://dfr8mm1i6x36r" path="res://assets/art/objects/door.png" id="2_sn5cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn5cu"]
+size = Vector2(65, 256)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sn5cu"]
+polygon = PackedVector2Array(-33, -128, -33, 127, 32, 127, 32, -129)
+
+[node name="ButtonDoor" type="CharacterBody2D"]
+collision_layer = 16
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_vox1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_sn5cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sn5cu")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_sn5cu")

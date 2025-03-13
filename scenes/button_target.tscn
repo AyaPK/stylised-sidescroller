@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5i8sgs5jmckp"]
+
+[ext_resource type="Script" uid="uid://o3473ls34vgs" path="res://scripts/button_target.gd" id="1_88vh0"]
+
+[node name="ButtonTarget" type="CharacterBody2D"]
+script = ExtResource("1_88vh0")
