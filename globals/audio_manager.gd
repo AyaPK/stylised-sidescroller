@@ -31,10 +31,6 @@ func _ready() -> void:
 	AudioServer.get_bus_effect(master_bus, 0).cutoff_hz = 12000
 	play_music(LOOP_1_HELLO_WORLD)
 
-func _process(_delta: float) -> void:
-	var audio_bus = AudioServer.get_bus_index("Master")
-	print(AudioServer.get_bus_effect(audio_bus, 0).cutoff_hz)
-
 func play_music(_audio: AudioStream) -> void:
 	if special_queue:
 		music_players[0].stream = special_queue

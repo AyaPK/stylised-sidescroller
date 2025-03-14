@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb50jgsbbqtfu"]
+
+[ext_resource type="Script" uid="uid://d34f7n2v1yu8u" path="res://scripts/movingplatform.gd" id="1_k55no"]
+[ext_resource type="Texture2D" uid="uid://dfr8mm1i6x36r" path="res://assets/art/objects/door.png" id="1_n41ed"]
+
+[sub_resource type="Curve2D" id="Curve2D_jyhfs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4402, 258, 0, 0, 0, 0, 3951, 258, 0, 0, 0, 0, 4407, 258, 0, 0, 0, 0, 4402, 258)
+}
+point_count = 4
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tbgi4"]
+polygon = PackedVector2Array(-128.101, -31.8036, -127.812, 32.3836, 128.19, 32.6156, 127.995, -32.3841)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k55no"]
+size = Vector2(257.194, 64.6187)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_k55no")
+
+[node name="MovingPlatform" type="Path2D" parent="."]
+position = Vector2(-4402, -258)
+curve = SubResource("Curve2D_jyhfs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="MovingPlatform"]
+position = Vector2(4375.89, 258)
+rotation = 0.00299999
+progress = 26.0479
+rotates = false
+loop = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="MovingPlatform/PathFollow2D"]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform/PathFollow2D/CharacterBody2D"]
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("1_n41ed")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="MovingPlatform/PathFollow2D/CharacterBody2D"]
+occluder = SubResource("OccluderPolygon2D_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform/PathFollow2D/CharacterBody2D"]
+position = Vector2(-0.410191, -0.303774)
+shape = SubResource("RectangleShape2D_k55no")

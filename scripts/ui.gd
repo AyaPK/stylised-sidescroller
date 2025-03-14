@@ -17,7 +17,10 @@ func _process(_delta: float) -> void:
 	node_end.global_position = Vector2(hp.global_position.x+(hp.value*1.28), hp.global_position.y)
 	node_end_2.global_position = Vector2(hp.global_position.x+(hp.value*1.28), hp.global_position.y+10)
 	node_end_3.global_position = Vector2(hp.global_position.x+(hp.value*1.28), hp.global_position.y+20)
-
+	
+	if hp.value == 0.0:
+		reset()
+		LevelManager.reload_scene()
 
 func remove_health() -> void:
 	hp.value -= 1
@@ -34,3 +37,6 @@ func add_health() -> void:
 	node_end_3.emitting = false
 	hp_anim.play("still")
 	AudioManager.increase_low_pass()
+
+func reset() -> void:
+	hp.value = 10
