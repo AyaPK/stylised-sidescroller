@@ -1,0 +1,1 @@
+class_name SwingingObstacle extends Node2D

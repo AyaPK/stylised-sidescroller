@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://drbragrjw7cnw"]
+
+[ext_resource type="Script" uid="uid://rhx7vx4whlrt" path="res://scripts/swinging_obstacle.gd" id="1_ptmnd"]
+[ext_resource type="Texture2D" uid="uid://dfr8mm1i6x36r" path="res://assets/art/objects/door.png" id="2_be18c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ptmnd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptmnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be18c"]
+size = Vector2(11, 62)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_be18c"]
+polygon = PackedVector2Array(-27, -6, -28, 248, 37, 248, 34, -10)
+
+[node name="SwingingObstacle" type="Node2D"]
+script = ExtResource("1_ptmnd")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(4, 4)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_ptmnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_ptmnd")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(3, 120)
+scale = Vector2(4, 4)
+texture = ExtResource("2_be18c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(2, 121)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_be18c")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2D"]
+occluder = SubResource("OccluderPolygon2D_be18c")

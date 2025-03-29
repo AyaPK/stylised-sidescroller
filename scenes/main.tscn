@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dn7b1rx7mvy6y"]
+[gd_scene load_steps=8 format=4 uid="uid://dn7b1rx7mvy6y"]
 
 [ext_resource type="PackedScene" uid="uid://d15yg7r16lrho" path="res://player/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://myqa3tdm5r37" path="res://scenes/tile_map_layer.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dgotigkeh5r8p" path="res://scenes/button.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bwufacsxl66ck" path="res://scenes/button_door.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bb50jgsbbqtfu" path="res://scenes/movingplatform.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://drbragrjw7cnw" path="res://scenes/swinging_obstacle.tscn" id="6_tefeu"]
 
 [sub_resource type="Curve2D" id="Curve2D_tbgi4"]
 _data = {
@@ -48,3 +49,6 @@ looping = false
 
 [node name="Path2D" type="Path2D" parent="MovingPlatform"]
 curve = SubResource("Curve2D_tbgi4")
+
+[node name="SwingingObstacle" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(4363, 39)
